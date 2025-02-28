@@ -39,14 +39,72 @@
             margin: 0.5rem 0;
             color: #333;
         }
+        /* 紙雞腿白飯圖片 */
+        .chicken-image {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+        /* 按鈕樣式 */
+        .useless-btn, .donate-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0px 5px 0px #d11179;
+            transition: all 0.2s ease;
+        }
+        .useless-btn {
+            background-color: #ff1493;
+        }
+        .donate-btn {
+            background-color: #1e90ff;
+            margin-left: 1rem;
+            box-shadow: 0px 5px 0px #1565c0;
+        }
+        .useless-btn:active, .donate-btn:active {
+            box-shadow: none;
+            top: 5px;
+        }
+        /* 假進度條容器 */
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 25px;
+            margin: 2rem auto;
+            height: 30px;
+            overflow: hidden;
+        }
+        /* 假進度條本身 */
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #ff1493;
+            transition: width 0.5s ease;
+        }
     </style>
 </head>
 <body>
-/* 這裡是 HTML 內容 */
 <div class="container">
     <h1>We blew our entire budget</h1>
     <h1>on being useless.</h1>
     <h2>Please enjoy this paper chicken leg!</h2>
+    <!-- 紙雞腿白飯圖片 -->
+    <img src="paper-chicken-leg.png" alt="Paper Chicken Leg on Rice" class="chicken-image">
+    <!-- 假進度條區塊 -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <!-- 互動按鈕 -->
+    <button class="useless-btn" id="uselessBtn">Useless Button</button>
+    <button class="donate-btn" id="donateBtn">Donate for a real chicken leg</button>
 </div>
 </body>
 </html>
