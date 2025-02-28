@@ -2,86 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Useless Site</title>
+    <title>Useless Site - Paper Chicken Leg</title>
     <style>
         /* 全域樣式設定 */
         body {
             margin: 0;
             padding: 0;
             background-color: #fdfdfd;
-            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            font-family: Arial, sans-serif;
         }
-        /* 容器置中 */
+
+        /* 容器設定 */
         .container {
             text-align: center;
-            max-width: 600px;
+            max-width: 480px;
             margin: 0 auto;
         }
-        /* 主標題樣式 */
-        h1 {
-            font-size: 2.5rem;
+
+        /* 主標語樣式 (縮小20%) */
+        .main-title {
+            font-size: 2rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0.5rem 0;
+            letter-spacing: 1.6px;
+            margin: 0.4rem 0;
             color: #333;
         }
-        /* 副標題樣式 */
-        h2 {
-            font-size: 1.8rem;
+
+        /* 副標語樣式 (縮小20%) */
+        .sub-title {
+            font-size: 1.44rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0.5rem 0;
+            letter-spacing: 1.6px;
+            margin: 0.4rem 0;
             color: #333;
         }
-        /* 紙雞腿白飯圖片 */
+
+        /* 紙雞腿白飯圖片樣式 */
         .chicken-image {
             max-width: 100%;
             height: auto;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
         }
-        /* 按鈕樣式 */
+
+        /* 粉色 3D 效果按鈕樣式 */
         .useless-btn, .donate-btn {
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.8rem 1.5rem;
-            font-size: 1.2rem;
+            margin-top: 0.8rem;
+            padding: 0.64rem 1.2rem;
+            font-size: 0.96rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             font-weight: 700;
             color: #fff;
             border: none;
             cursor: pointer;
             position: relative;
-            box-shadow: 0px 5px 0px #d11179;
+            box-shadow: 0 4px 0 #d11179;
             transition: all 0.2s ease;
         }
+
         .useless-btn {
-            background-color: #ff1493;
+            background-color: #ff1493; /* 亮粉色 */
         }
+
         .donate-btn {
-            background-color: #1e90ff;
-            margin-left: 1rem;
-            box-shadow: 0px 5px 0px #1565c0;
+            background-color: #1e90ff; /* 藍色 */
+            margin-left: 0.8rem;
+            box-shadow: 0 4px 0 #1565c0;
         }
+
         .useless-btn:active, .donate-btn:active {
             box-shadow: none;
-            top: 5px;
+            top: 4px;
         }
-        /* 假進度條容器 */
+
+        /* 假進度條容器 (縮小20%) */
         .progress-container {
             width: 100%;
             background-color: #ddd;
-            border-radius: 25px;
-            margin: 2rem auto;
-            height: 30px;
+            border-radius: 20px;
+            margin: 1.6rem auto;
+            height: 24px;
             overflow: hidden;
         }
+
         /* 假進度條本身 */
         .progress-bar {
             width: 0%;
@@ -93,15 +103,19 @@
 </head>
 <body>
 <div class="container">
-    <h1>We blew our entire budget</h1>
-    <h1>on being useless.</h1>
-    <h2>Please enjoy this paper chicken leg!</h2>
+    <!-- 主標語與副標語 -->
+    <h1 class="main-title">We blew our entire budget</h1>
+    <h1 class="main-title">on being useless.</h1>
+    <h2 class="sub-title">Please enjoy this paper chicken leg!</h2>
+
     <!-- 紙雞腿白飯圖片 -->
     <img src="paper-chicken-leg.png" alt="Paper Chicken Leg on Rice" class="chicken-image">
+
     <!-- 假進度條區塊 -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
+
     <!-- 互動按鈕 -->
     <button class="useless-btn" id="uselessBtn">Please</button>
     <button class="donate-btn" id="donateBtn">Donate for a real chicken leg</button>
@@ -118,7 +132,7 @@
         alert("Oops! We still can't afford it... Our engineers are starving!");
     });
 
-    // 模擬假進度條邏輯
+    // 模擬假進度條，每隔 0.5 秒隨機增加進度，超過 100%則重置
     let progress = 0;
     const progressBar = document.getElementById('progressBar');
     setInterval(() => {
