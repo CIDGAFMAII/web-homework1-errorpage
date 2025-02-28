@@ -103,8 +103,31 @@
         <div class="progress-bar" id="progressBar"></div>
     </div>
     <!-- 互動按鈕 -->
-    <button class="useless-btn" id="uselessBtn">Useless</button>
+    <button class="useless-btn" id="uselessBtn">Please</button>
     <button class="donate-btn" id="donateBtn">Donate for a real chicken leg</button>
 </div>
+
+<script>
+    // 綁定無用按鈕點擊事件
+    document.getElementById('uselessBtn').addEventListener('click', () => {
+        alert("Absolutely nothing happened... because we're useless!");
+    });
+
+    // 綁定 Donate 按鈕點擊事件
+    document.getElementById('donateBtn').addEventListener('click', () => {
+        alert("Oops! We still can't afford it... Our engineers are starving!");
+    });
+
+    // 模擬假進度條邏輯
+    let progress = 0;
+    const progressBar = document.getElementById('progressBar');
+    setInterval(() => {
+        progress += Math.random() * 10;
+        if (progress >= 100) {
+            progress = 0;
+        }
+        progressBar.style.width = progress + '%';
+    }, 500);
+</script>
 </body>
 </html>
