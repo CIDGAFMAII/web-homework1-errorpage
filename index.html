@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Useless Site - Paper Chicken Leg</title>
+    <!-- 設定視窗寬度與初始縮放比例，適合各種裝置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Useless Web</title>
     <style>
-        /* 全域樣式設定 */
+        /*全局基本樣式設定*/
         body {
             margin: 0;
             padding: 0;
@@ -12,49 +14,41 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
         }
-
-        /* 容器設定 */
+        /* 主容器設定：置中內容，設定最大寬度與內距 */
         .container {
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
+            padding: 1rem;
         }
-
-        /* 主標語樣式*/
+        /*標題文字樣式設定*/
         .main-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 2.5rem;           /* 主標語字體大小 */
+            font-weight: 700;            /* 粗體 */
+            text-transform: uppercase;   /* 全部轉為大寫 */
+            letter-spacing: 2px;         /* 字距 */
             margin: 0.5rem 0;
             color: #333;
-            /*增加文字右下角方塊陰影*/
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.3); /* 文字陰影 */
         }
-
-        /* 副標語樣式*/
         .sub-title {
-            font-size: 1.8rem;
+            font-size: 1.8rem;           /* 副標語字體大小 */
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.6px;
             margin: 0.4rem 0;
             color: #333;
-            /*增加文字右下角方塊陰影*/
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
         }
-
-        /* 紙雞腿白飯圖片樣式 */
+        /*圖片與按鈕樣式設定*/
         .chicken-image {
-            max-width: 80%;
+            max-width: 80%;              /* 圖片最大寬度 */
             height: auto;
             margin: 0.8rem 0;
         }
-
-        /* 粉色 3D 效果按鈕樣式 */
         .useless-btn, .donate-btn {
             display: inline-block;
             margin-top: 1rem;
@@ -67,27 +61,27 @@
             border: none;
             cursor: pointer;
             position: relative;
+            /* 按鈕右下方陰影效果 */
             box-shadow: 4px 4px 0 #d11179;
             transition: all 0.2s ease;
         }
-
+        /* 粉色按鈕背景 */
         .useless-btn {
-            background-color: #ff1493; /* 亮粉色 */
+            background-color: #ff1493;
         }
-
+        /* 藍色按鈕背景與陰影 */
         .donate-btn {
-            background-color: #1e90ff; /* 藍色 */
+            background-color: #1e90ff;
             margin-left: 1rem;
             box-shadow: 4px 4px 0 #1565c0;
         }
-        /* 按鈕 active 狀態：移除陰影並向右下偏移 4px */
+        /* 按鈕被點擊時：移除陰影，並向右下偏移 */
         .useless-btn:active, .donate-btn:active {
             box-shadow: none;
             top: 4px;
             left: 4px;
         }
-
-        /* 假進度條容器 */
+        /* 進度條樣式設定*/
         .progress-container {
             width: 100%;
             background-color: #ddd;
@@ -96,48 +90,68 @@
             height: 30px;
             overflow: hidden;
         }
-
-        /* 假進度條本身 */
         .progress-bar {
-            width: 0%;
+            width: 0;
             height: 100%;
             background-color: #ff1493;
             transition: width 0.5s ease;
+        }
+        /*響應式設計：根據螢幕寬度調整字體與容器寬度*/
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+                padding: 2rem;
+            }
+            .main-title {
+                font-size: 2.8rem;
+            }
+            .sub-title {
+                font-size: 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 800px;
+            }
+            .main-title {
+                font-size: 3rem;
+            }
+            .sub-title {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- 主標語與副標語 -->
-    <h1 class="main-title">We blew our entire budget</h1>
+    <!主標語部分：換行方式固定為三行主標語與兩行副標語-->
+    <h1 class="main-title">Oops! We blew our</h1>
+    <h1 class="main-title">entire budget</h1>
     <h1 class="main-title">on being useless.</h1>
-    <h2 class="sub-title">Please enjoy this paper chicken leg!</h2>
-
-    <!-- 紙雞腿白飯圖片 -->
+    <br><br>
+    <h2 class="sub-title">Please enjoy this</h2>
+    <h2 class="sub-title">paper chicken leg!</h2>
+    <!--紙雞腿白飯圖片-->
     <img src="paper-chicken-leg.png" alt="Paper Chicken Leg on Rice" class="chicken-image">
-
-    <!-- 假進度條區塊 -->
+    <!--假進度條區塊-->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
-
-    <!-- 互動按鈕 -->
+    <!--互動按鈕：使用無用按鈕與募款按鈕-->
     <button class="useless-btn" id="uselessBtn">USELESS BUTTON</button>
     <button class="donate-btn" id="donateBtn">Donate for a real chicken leg</button>
 </div>
 
 <script>
-    // 綁定無用按鈕點擊事件
+    // 點擊「無用按鈕」時顯示提示訊息
     document.getElementById('uselessBtn').addEventListener('click', () => {
         alert("Absolutely nothing happened... because we're useless!");
     });
-
-    // 綁定 Donate 按鈕點擊事件
+    // 點擊「募款按鈕」時顯示提示訊息
     document.getElementById('donateBtn').addEventListener('click', () => {
         alert("Oops! We still can't afford it... Our engineers are starving!");
     });
-
-    // 模擬假進度條，每隔 0.5 秒隨機增加進度，超過 100%則重置
+    // 模擬進度條：每隔 0.5 秒隨機增加進度，達到 100%後重置
     let progress = 0;
     const progressBar = document.getElementById('progressBar');
     setInterval(() => {
